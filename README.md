@@ -1,8 +1,3 @@
-
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/broadinstitute/new_service_requirements.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/broadinstitute/new_service_requirements/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/broadinstitute/new_service_requirements.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/broadinstitute/new_service_requirements/context:javascript)
-
-
 # sdarq_survey
 Security and Devops Applicable Requirements Questionnaire is a tool that serves as an entry point
 for generating security requirements based on technical characteristics of new services that are 
