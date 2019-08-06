@@ -1,0 +1,8 @@
+{{with $newservicereq := vault ("secret/secops/new_service_req")}}
+{
+    "host": "{{$newservicereq.Data.host}}",
+    "user": "{{$newservicereq.Data.user}}",
+    "api_key": "{{$newservicereq.Data.api_key}}",
+    "slack_token": "{{$newservicereq.Data.slack_token}}"
+}
+{{end}}
