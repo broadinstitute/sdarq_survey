@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+.sv_main .sv_body {
+  background-color: white;
+  border-top: 2px solid #5985d0 !important;
+}
+
+.sv_main .sv_progress_bar {
+  background-color: #5885d0  !important;
+}
+.sv_main input[type="button"], .sv_main button {
+  color: white;
+  background-color: #5885d0 !important;
+}
+
+.sv_main .sv_container .sv_body .sv_p_root .sv_page_title {
+  font-size: 1.5em !important;
+  text-align: center !important;
+  margin-top: 2.1em !important;
+  color: #181818 !important;
+  margin-bottom: 2.1em !important;
+  font-weight: 300 !important;
+}
+
+.sv_main .sv_p_root > .sv_row:nth-child(even) {
+  background-color: #ffffff !important;
+}
+.sv_main .sv_p_root > .sv_row {
+  border-bottom: none !important;
+}
+
+.sv_main .sv_q_erbox:not([style*="display: none"]):not([style*="display:none"]) {
+  border: none !important;
+  background-color: #ffffff !important;
+  color: #ff0000 !important;
+  text-indent: 1em;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: normal !important;
+}
+.sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_erbox:not([style*="display: none"]):not([style*="display:none"]) {
+  margin: 1em 0;
+  padding: 0em !important;
+}
+.sv_main .sv_q_text_root:focus, .sv_main .sv_q_dropdown_control:focus, .sv_main input:not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="image"]):not([type="checkbox"]):not([type="radio"]):focus, .sv_main select:focus, .sv_main textarea:focus {
+  border: 1px solid #5885d0 !important;
+}
+
+.sv_main .sv_container .sv_body .sv_p_root .sv_q_title {
+  font-weight: 400 !important;
+  font-size: 1em;
+  margin: 0.5em 0;
+  color: #484747 !important;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  font-size: 0.95em !important;
+  margin-bottom: 0px !important;
+  font-weight: 400 !important;
+}
