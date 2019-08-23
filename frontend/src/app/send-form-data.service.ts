@@ -11,8 +11,8 @@ import {HttpHeaders, HttpClient} from '@angular/common/http';
 
 export class SendFormDataService {
 
-  private Url = 'http://0.0.0.0:5000/submit/';
-
+  // private Url = 'http://0.0.0.0:5000/submit/';
+  private Url = 'https://sdarq.dsp-techops.broadinstitute.org/submit/';
   constructor(private http: Http) { }
 
   sendFormData(data): Observable<any> {
