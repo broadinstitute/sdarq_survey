@@ -6,10 +6,21 @@
 
 .sv_main .sv_progress_bar {
   background-color: #5885d0  !important;
+  -webkit-transition: width 1s;
+  transition: width 1s;
 }
 .sv_main input[type="button"], .sv_main button {
   color: white;
   background-color: #5885d0 !important;
+      font-size: 0.95em;
+    font-weight: lighter !important;
+    line-height: 3em !important;
+    letter-spacing: 0.07em !important;
+    border: none;
+    min-width: 100px;
+    cursor: pointer;
+    padding: 0 2em;
+    border-radius: 7px !important;
 }
 
 .sv_main .sv_container .sv_body .sv_p_root .sv_page_title {
@@ -33,6 +44,7 @@
   background-color: #ffffff !important;
   color: #ff0000 !important;
   text-indent: 1em;
+
 }
 label {
   display: inline-block;
@@ -61,3 +73,29 @@ label {
   margin-bottom: 0px !important;
   font-weight: 400 !important;
 }
+
+
+.tip{
+    background: #4bb1cf;
+    padding: 10px;
+    border-radius: 10px;
+    color:white !important;
+}
+.tip a {color:white !important;}
+
+.highs{
+    background: #e0455e;
+    padding: 10px;
+    border-radius: 10px;
+    color:white !important;
+}
+.highs a {color:white !important;}
+
+.medium{
+    background: #ffba00;
+    padding: 10px;
+    border-radius: 10px;
+    color:white !important;
+}
+
+.medium a {color:white !important;}
