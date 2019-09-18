@@ -34,9 +34,9 @@ The tool currently offers (what alternatives like Google Forms, Survey Builders 
 * ``docker-compose -f docker-compose-dev.yml -p sdarq-dev up``
 * ``docker-compose -f docker-compose-prod.yml -p sdarq-prod up``
 
-## Form edition
-* Change json in ``src/form/form.component.ts``  or 
-* Create your own form in [Surveyjs](https://surveyjs.io/create-survey/) and paste json code at ``form.component.ts``
+## Editing the form
+* Change json in ``src/form/form.json``  or 
+* Change form in [Surveyjs](https://surveyjs.io/create-survey/) and paste json code at ``src/form/form.json``
 
 ## Build
 
