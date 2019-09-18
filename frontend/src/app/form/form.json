@@ -10,31 +10,36 @@
             "type": "text",
             "name": "Service",
             "title": "The name of the application/service",
-            "isRequired": true
+            "isRequired": true,
+            "requiredErrorText": "Required."
           },
           {
             "type": "comment",
             "name": "Description",
             "title": "A brief description of the application/service (provide link to external doc if easier)",
-            "isRequired": true
+            "isRequired": true,
+            "requiredErrorText": "Required."
           },
           {
             "type": "text",
             "name": "Security champion",
             "title": "Security champion (main point of contact from a security perspective):",
-            "isRequired": true
+            "isRequired": true,
+            "requiredErrorText": "Required."
           },
           {
             "type": "text",
             "name": "Github URL",
             "title": "Github URL (N/A if you have not written a line of code yet)",
-            "isRequired": true
+            "isRequired": true,
+            "requiredErrorText": "Required."
           },
           {
             "type": "text",
             "name": "Architecture Diagram",
             "title": "Link to Architecture Diagram, ideally a Lucidchart diagram.",
-            "isRequired": true
+            "isRequired": true,
+            "requiredErrorText": "Required."
           }
         ],
         "title": "Metadata"
