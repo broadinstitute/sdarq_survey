@@ -57,8 +57,8 @@
                 "text": " Uses a Global Load Balancer that doesn’t already exist "
               },
               {
-                "value": "Cloud Function that access https directly from Internet",
-                "text": " Is a new Cloud Function that access https directly from Internet "
+                "value": "Cloud Function that can be accessed from anywhere on the internet",
+                "text": " Is a new Cloud Function that can be accessed from anywhere on the Internet "
               },
               {
                 "value": "New GAE app that doesn’t use Firewall Rules to limit the app that can talk to it",
