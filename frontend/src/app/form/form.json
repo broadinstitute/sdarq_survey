@@ -69,6 +69,10 @@
                 "text": " Is not behind our “Orchestration” layer or API Gateway "
               },
               {
+                "value": "Does not require government oversight (is not part of Terra)",
+                "text": "Does not require government oversight (is not part of Terra)"
+              },
+              {
                 "value": "Uses a new cloud component (GCP) that hasn’t been used before by our microservices",
                 "text": " Uses a new cloud component (Google service) that hasn’t been used before by our microservices. How can you tell if your component is new? See the Service-Oriented Architecture section of the FireCloud Design Specification. If the service you are introducing does NOT rely in what's already in the list please select this checkbox and update the Doc by adding your service"
               }
@@ -126,7 +130,7 @@
               },
               {
                 "value": "Sentry",
-                "text": " We are currently using Sentry "
+                "text": " We are currently using Sentry or something else (ex: Google Debug) for exception handling and reporting"
               },
               {
                 "value": "Codacy",
