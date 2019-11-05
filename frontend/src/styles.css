@@ -76,26 +76,34 @@ label {
 
 
 .tip{
-    background: #4bb1cf;
+    background: #aad7fb!important;
     padding: 10px;
     border-radius: 10px;
-    color:white !important;
+    color:#000 !important;
 }
-.tip a {color:white !important;}
+.tip a {color:#000 !important;}
 
 .highs{
-    background: #e0455e;
+    background: #faadad!important;
     padding: 10px;
     border-radius: 10px;
-    color:white !important;
+    color:#000 !important;
 }
-.highs a {color:white !important;}
+.highs a {color:#000 !important;}
 
 .medium{
-    background: #ffba00;
+    background: #f7da9a!important;
     padding: 10px;
     border-radius: 10px;
-    color:white !important;
+    color:#000 !important;
 }
 
-.medium a {color:white !important;}
+.medium a {color:#000 !important;}
+
+.jira_ticket_alert {
+    text-align: center;
+    color: #333333;
+    padding: 13px;
+    background: whitesmoke;
+    border-radius: 6px;
+}
