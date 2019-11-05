@@ -400,7 +400,7 @@
     {
      "type": "html",
      "name": "JIRA_alert",
-     "html": "<p class=\"jira_ticket_alert\">PLEASE CREATE A JIRA TICKET FOR ALL THE RECOMMENDATIONS LISTED BELOW AND PROVIDE JIRA TICKET LINK IN THE NEXT STEP. <p>"
+     "html": "<p class=\"jira_ticket_alert\">Please create a JIRA ticket for all the recommendations listed lebow and provide JIRA ticket link in the next step. <p>"
     },
     {
      "type": "html",
