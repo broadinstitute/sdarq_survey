@@ -46,8 +46,8 @@ def submit():
     productDescription = dd.set_product(product_id, description=data4)
 
     slack.chat.post_message('#dsp-security',
-                            'A new security service requirement is sent to DefectDojo :pikasheep: ! The link is here'
-                            ' https://defect-dojo.dsp-techops.broadinstitute.org/product/' +  str(product_id) + ' . Project: ' + appName + '.')
+                            'Project: ' + appName + 'is sent to DefectDojo :notebook: ! The link is here'
+                            ' https://defect-dojo.dsp-techops.broadinstitute.org/product/' +  str(product_id) + '.')
 
     response = make_response((json.dumps(data),200,
                        {"X-Frame-Options": "SAMEORIGIN",
