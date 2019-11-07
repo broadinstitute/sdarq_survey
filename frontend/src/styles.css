@@ -107,3 +107,14 @@ label {
     background: whitesmoke;
     border-radius: 6px;
 }
+
+.saveResponses{
+    background-color: #5885d0!important;
+    font-weight: lighter!important;
+    line-height: 3em!important;
+    letter-spacing: .07em!important;
+    min-width: 100px;
+    margin:0 0 0 44.5%;
+    color:white;
+    border-radius: 7px!important;
+}
