@@ -4,5 +4,8 @@
     "user": "{{$newservicereq.Data.user}}",
     "api_key": "{{$newservicereq.Data.api_key}}",
     "slack_token": "{{$newservicereq.Data.slack_token}}"
+    "jira_username": "{{$newservicereq.Data.jira_username}}",
+    "jira_token": "{{$newservicereq.Data.jira_token}}", 
+    "jira_instance": "{{$newservicereq.Data.jira_instance}}"
 }
 {{end}}
