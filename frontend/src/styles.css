@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
 .sv_main .sv_body {
   background-color: white;
   border-top: 2px solid #5985d0 !important;
@@ -117,4 +119,8 @@ label {
     margin:0 0 0 44.5%;
     color:white;
     border-radius: 7px!important;
+}
+
+input, .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_text_root, .sv_main .sv_container .sv_body .sv_p_root .sv_q .sv_q_dropdown_control, .sv_main .sv_container .sv_body .sv_p_root .sv_q input:not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="image"]):not([type="checkbox"]):not([type="radio"]), .sv_main .sv_container .sv_body .sv_p_root .sv_q select, .sv_main .sv_container .sv_body .sv_p_root .sv_q textarea {
+    border-radius: 6px;
 }

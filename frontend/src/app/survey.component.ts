@@ -77,6 +77,6 @@ export class SurveyComponent implements OnInit {
     };
     const surveyPDF = new SurveyPDF.SurveyPDF(this.json, options);
     surveyPDF.data = this.result;
-    surveyPDF.save("SDARQ survey PDF");
+    surveyPDF.save("security_requirement");
   }
 }
