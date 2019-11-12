@@ -1,6 +1,9 @@
 from jira import JIRA
+from pprint import pprint
 import json
 import re
+
+# Broadworkbench Jira Istance https://broadworkbench.atlassian.net/secure/BrowseProjects.jspa
 
 def get_jira_details():
     with open('config.json') as config_file:
@@ -12,37 +15,38 @@ def get_jira_details():
         "jira_instance" : res['jira_instance']
     }
 
-global auth_jira
+global jira
 def auth():
     """
     Authenticate to broadworkbench.atlassian.net Jira Cloud Instance
     """
-    global auth_jira
+    global jira
     jd = get_jira_details()
-    auth_jira = JIRA(
+    jira = JIRA(
         basic_auth=(jd['jira_username'], jd['jira_api_token']), 
         options={
             'server': jd['jira_instance']
         } 
     )
-    print(auth_jira)
+    # print(jira)
 
 
 def get_all_projects():
     """
     Return a list of all projects 
     """
-    projects = auth_jira.projects()
-    return projects
+    projects = jira.projects()
+    return projects, type(projects)
 
 
-def get_single_project(project_name):
+def get_single_project_details(project_name):
     """
     Get single project info given a project_id
     Example project name: 'Cloud Integrations'
     """
-    project = auth_jira.project(project_name)
-    return project.name
+    project = jira.project(project_name)
+    name = project.name
+    return name
 
 
 def get_regular_issue(issue_id):
@@ -50,7 +54,7 @@ def get_regular_issue(issue_id):
     Get a single issue in a particular project
     Example issue: 'AAA-6666'
     """
-    issue = auth_jira.issue(issue_id)
+    issue = jira.issue(issue_id)
     return issue
 
 
@@ -59,23 +63,85 @@ def get_security_issue(issue_id, fields='summary, content, security, sourceclear
     Get a security specific issue
     Example issue: 'AAA-6666'
     """
-    compliance_issue = auth_jira.issue(issue_id)   
+    compliance_issue = jira.issue(issue_id)   
     return compliance_issue 
 
 
-def get_compliance_issue(issue_id, fields='clia, comment, fisma, your_favorite_compliance_framework_here'):
+def create_single_security_issue(project_key_id):
     """
-    Get a compliance specific issue
-    Example issue: 'AAA-6666'
+    Create a security issue automatically 
+    Example: "Use Vault to store secrets"
     """
-    compliance_issue = auth_jira.issue(issue_id)   
-    return compliance_issue 
+    new_issue = jira.create_issue(project=project_key_id, 
+                                  summary='New security requirements issue',
+                                  description='Description of new security requirements issue', 
+                                  issuetype={'name': 'Task'})
+    # new_issue = jira.create_issue(fields=new_issue)
+    print("+ Single Security JIRA issue created: {}".format(new_issue))
+    return new_issue
+
+def create_multiple_security_issues(project_key_id):
+    """
+    Create multiple security issues automatically 
+    Example:  - Use Vault to store secrets
+              - Has pentesting been done  
+              - Is unit testing part of your workflow
+    """
+    issue_list = [
+        {
+            'project': {'key': project_key_id},
+            'summary': 'First issue of many',
+            'description': 'Look into this one',
+            'issuetype': {'name': 'Bug'},
+        },
+        {
+            'project': {'key': project_key_id},
+            'summary': 'Second issue',
+            'description': 'Another one',
+            'issuetype': {'name': 'Bug'},
+        },
+        {
+            'project': {'key': project_key_id},
+            'summary': 'Last issue',
+            'description': 'Final issue of batch.',
+            'issuetype': {'name': 'Bug'},
+        }]
+    new_multiple_issues = jira.create_issues(field_list=issue_list)
+    print("+ New multiple Security issues created: {}".format(new_multiple_issues))
+    return new_multiple_issues
+
+
+# def get_compliance_issue(issue_id, fields='clia, comment, fisma, your_favorite_compliance_framework_here'):
+#     """
+#     Get a compliance specific issue
+#     Example issue: 'AAA-6666'
+#     """
+#     compliance_issue = jira.issue(issue_id)   
+#     return compliance_issue 
 
 
 def main():
     auth()
-    val = get_all_projects()
-    print(val)
+
+    # all_projects   = get_all_projects()
+    # print("All projects   :", all_projects)
+
+    # single_project = get_single_project_details('ATP')
+    # print("Single Project :", all_projects)
+
+    # single_issue   = get_regular_issue("ATP-1")
+    # print("Single Issue   :", all_projects)
+
+    # new_security_issue = create_single_security_issue('ATP')
+    # pprint(new_security_issue)
+
+    new_multiple_issues = create_multiple_security_issues('ATP')
+    print(new_multiple_issues)
+    
+        
+    
+    # print("All projects:", all_projects)
+    
 
 
 if __name__== "__main__":
