@@ -39,10 +39,10 @@
 }
 
 .sv_p_root, .sv_row  {
-      -webkit-animation: fadein 0.7s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 0.7s; /* Firefox < 16 */
-        -ms-animation: fadein 0.7s; /* Internet Explorer */
-         -o-animation: fadein 0.7s; /* Opera < 12.1 */
+      -webkit-animation: fadein 0.7s;
+       -moz-animation: fadein 0.7s;
+        -ms-animation: fadein 0.7s;
+         -o-animation: fadein 0.7s;
             animation: fadein 0.7s;
 }
 
