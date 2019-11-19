@@ -10,3 +10,4 @@ flask-api
 flask-cors
 virtualenv==16.0.0
 slacker
+jira
