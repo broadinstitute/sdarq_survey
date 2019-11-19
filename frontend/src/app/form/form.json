@@ -450,12 +450,6 @@
     },
     {
      "type": "html",
-     "name": "Alert-certificate",
-     "visibleIf": "{Applicable} contains \"Certificate for a non-*.dsde-.broadinstitute.org URL\"",
-     "html": "<div class=\"warning\">Reach out to DevOps team about certificates for non-*.dsde-.broadinstitute.org URL\n</div>"
-    },
-    {
-     "type": "html",
      "name": "Alert-encryptionBackupOptions",
      "visibleIf": "{Applicable} contains \"Using persistent storage\"",
      "html": "<div class=\"highs\">Reach out to DevOps team about persistence about Encryption and Backup options for your persistence storage.</div>"
@@ -477,6 +471,12 @@
      "name": "Alert-logAuthAttemps",
      "visibleIf": "{Authent/Authorz attemps logged} = \"No\"",
      "html": "<div class=\"highs\">You should log authorization and authentication attempts. The application has the most information about the user (e.g. identity, roles, permissions) and the context of the event (target, action, outcomes), and often this data is not available to either infrastructure devices, or even closely-related applications.</div>"
+    },
+    {
+     "type": "html",
+     "name": "Alert-certificate",
+     "visibleIf": "{Applicable} contains \"Certificate for a non-*.dsde-.broadinstitute.org URL\"",
+     "html": "<div class=\"medium\">Reach out to DevOps team about certificates for non-*.dsde-.broadinstitute.org URL\n</div>"
     },
     {
      "type": "html",
