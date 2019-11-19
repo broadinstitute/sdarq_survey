@@ -63,11 +63,11 @@ def submit():
                                         summary='New security requirements issue',
                                         description='Description of new security requirements issue.',
                                         issuetype={'name': 'Task'})
-        slack.chat.post_message('#new-sec-service-req',
+        slack.chat.post_message('#dsp-security',
                                 '*New service engagement created* :notebook_with_decorative_cover: \n 1. Project name: `' + appName + '`\n 2. DefectDojo URL: `https://defect-dojo.dsp-techops.broadinstitute.org/product/' + str(
                                   product_id) + '`\n 3. Jira Issue Url: `https://broadworkbench.atlassian.net/projects/'+ str(project_key_id) + "` ")
     else:
-        slack.chat.post_message('#new-sec-service-req',
+        slack.chat.post_message('#dsp-security',
                                 '*New service engagement created* :notebook_with_decorative_cover: \n 1. Project name: `' + appName + '`\n 2. DefectDojo URL: `https://defect-dojo.dsp-techops.broadinstitute.org/product/' + str(
                                   product_id) + "` ")
 
