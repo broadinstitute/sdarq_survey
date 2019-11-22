@@ -35,41 +35,48 @@ jira = JIRA(basic_auth=(jira_username, jira_api_token),options={'server': jira_i
 @cross_origin()
 def submit():
     jsonData = request.get_json()
-    appName = jsonData['Service']
+    appName = jsonData['Service'] 
 
-    # Create a product
+    # Create a product in DefectDojo
     prod_type = 1
     product = dd.create_product(appName, "Created for testing", prod_type)
 
     if product.success:
         product_id = product.id()
 
-    # Set product
-    data = json.dumps(jsonData).strip('{}')
-    data1 = data.strip(',').replace(',',' \n')
-    data2 = data1.strip('[').replace('[',' ')
-    data3 = data2.strip(']').replace(']',' ')
-    data4 = data3.strip('""').replace('"', ' ')
-
-
-    # Create product in DefectDojo
-    productDescription = dd.set_product(product_id, description=data4)
-
-
-    # Create a Jira ticket
-    if 'JiraProject' in jsonData:
+    # Create a Jira ticket if user chooses a Jira project
+    if 'JiraProject' in jsonData:  
         project_key_id = jsonData['JiraProject']
+        jira_description = json.dumps(jsonData['Ticket_Description']).strip('[]')
+        one = jira_description.strip('", "').replace('", "',' \n- ')
         jira_ticket = jira.create_issue(project=project_key_id,
                                         summary='New security requirements issue',
-                                        description='Description of new security requirements issue.',
+                                        description=str(one),
                                         issuetype={'name': 'Task'})
+        del jsonData['Ticket_Description']  # delete Ticket_Description from json, so it will not be added to DefectDojo product description
+        data = json.dumps(jsonData).strip('{}')
+        data1 = data.strip(',').replace(',',' \n')
+        data2 = data1.strip('[').replace('[',' ')
+        data3 = data2.strip(']').replace(']',' ')
+        data4 = data3.strip('""').replace('"', ' ')
+         # Set product description
+        productDescription = dd.set_product(product_id, description=data4)
+         # Set Slack notification
         slack.chat.post_message('#dsp-security',
                                 '*New service engagement created* :notebook_with_decorative_cover: \n 1. Project name: `' + appName + '`\n 2. DefectDojo URL: `https://defect-dojo.dsp-techops.broadinstitute.org/product/' + str(
-                                  product_id) + '`\n 3. Jira Issue Url: `https://broadworkbench.atlassian.net/projects/'+ str(project_key_id) + "` ")
+                                  product_id) + '`\n 3. Jira Issue Url: `https://broadworkbench.atlassian.net/projects/'+ str(project_key_id) + "/"+ str(jira_ticket) +"` ")
     else:
+        # Set Slack notification
         slack.chat.post_message('#dsp-security',
                                 '*New service engagement created* :notebook_with_decorative_cover: \n 1. Project name: `' + appName + '`\n 2. DefectDojo URL: `https://defect-dojo.dsp-techops.broadinstitute.org/product/' + str(
                                   product_id) + "` ")
+        data = json.dumps(jsonData).strip('{}')                         
+        data1 = data.strip(',').replace(',',' \n')
+        data2 = data1.strip('[').replace('[',' ')
+        data3 = data2.strip(']').replace(']',' ')
+        data4 = data3.strip('""').replace('"', ' ')
+         # Set product description
+        productDescription = dd.set_product(product_id, description=data4)
 
     response = make_response((json.dumps(data),200,
                        {"X-Frame-Options": "SAMEORIGIN",

@@ -400,6 +400,7 @@
     {
      "type": "html",
      "name": "JIRA_alert",
+     "Value":"JIRA_alert",
      "html": "<p class=\"jira_ticket_alert\">Please create a JIRA ticket for all the recommendations listed below in the next step.<p>"
     },
     {
@@ -662,6 +663,116 @@
        "text": "DSP Field Engineering"
       }
      ]
+    },
+    {
+     "type": "checkbox",
+     "name": "Ticket_Description",
+     "title": "Add alerts in your ticket description:",
+     "enableIf": "{JiraProject} notempty",
+     "isRequired": true,
+     "choices": [
+      {
+       "value": "Please reach out to AppSec team for initial security discussion. This is basically a Threat Modeling and Security Architecture Review session. The main purpose of the meeting is for us to take  an iterative, recursive look at the architecture and design of a new service/system.",
+       "text": "Please reach out to AppSec team for initial security discussion. This is basically a Threat Modeling and Security Architecture Review session. The main purpose of the meeting is for us to take  an iterative, recursive look at the architecture and design of a new service/system."
+      },
+      {
+       "value": "You must use SourceClear for downstream dependency/3rd  party component management. Ask DSP AppSec to add your repo.",
+       "visibleIf": "{Security tools} notcontains \"Sourceclear\""
+      },
+      {
+       "value": "You should only store secrets in Vault.",
+       "visibleIf": "{Security tools} notcontains \"Vault\""
+      },
+      {
+       "value": "You should setup Sentry. Reach out to #dsp-devops to get started.",
+       "visibleIf": "{Security tools} notcontains \"Sentry\""
+      },
+      {
+       "value": "You should use Codacy for security static code analysis. Reach out to #dsp-infosec-champions to add your repo.",
+       "visibleIf": "{Security tools} notcontains \"Codacy\""
+      },
+      {
+       "value": "Please make sure your service is using apache proxy with Tcell or is behind orchestration layer.",
+       "visibleIf": "{Apache proxy with Tcell installed or are behind Orch} = \"No\"  or {Runtime protection in your stack} = \"No\""
+      },
+      {
+       "value": "Reach out to DevOps team about certificates for non-*.dsde-.broadinstitute.org URL.",
+       "visibleIf": "{Applicable} contains \"Certificate for a non-*.dsde-.broadinstitute.org URL\""
+      },
+      {
+       "value": "Reach out to DevOps team about persistence about Encryption and Backup options for your persistence storage.",
+       "visibleIf": "{Applicable} contains \"Using persistent storage\""
+      },
+      {
+       "value": "Please make sure to allow logs to persist for at least 180 days in a searchable form. If you don't have a good idea of what events to audit, ask DevOps.",
+       "visibleIf": "{Logs persistence for at least 180 days} = \"No\""
+      },
+      {
+       "value": "For logging you should be able to know WHO did WHAT to WHAT OBJECT and WHEN. You must have some human review of logs on a regular basis for key events, and have alerts setup for these events. Ask dsp-devops if you need clarification.",
+       "visibleIf": "{Logs persistence for at least 180 days} = \"No\""
+      },
+      {
+       "value": "Please make sure to allow logs to persist for at least 180 days in a searchable form. If you don't have a good idea of what events to audit, ask DevO180",
+       "visibleIf": "{Are logs reviewed} = \"No\""
+      },
+      {
+       "value": "You should log authorization and authentication attempts. The application has the most information about the user (e.g. identity, roles, permissions) and the context of the event (target, action, outcomes), and often this data is not available to either infrastructure devices, or even closely-related applications.",
+       "visibleIf": "{Authent/Authorz attemps logged} = \"No\""
+      },
+      {
+       "value": "Unit tests have become quasi-standard for testing the functionality of software at a low level. Although this questionnaire focuses on security, the functional correctness of the application is also important. Particularly for web applications, where it is difficult (often impossible) to fall back to a previous version, functional bugs can cause problems with both integrity and availability. Consider implementing unit tests.",
+       "visibleIf": "{Unit testing} = \"Weak\"  or {Unit testing} = \"Nonexistent\""
+      },
+      {
+       "value": "Integration testing will show you how well your modules get along. Please consider implementing.",
+       "visibleIf": "{Integration testing} = \"Weak\" or {Integration testing} = \"Nonexistent\""
+      },
+      {
+       "value": "Performance testing will determine whether your service meets scalability and stability requirements under expected workloads. Please consider implementing.",
+       "visibleIf": "{Performance testing} = \"Weak\"  or {Performance testing} = \"Nonexistent\""
+      },
+      {
+       "value": "Exceptions and crashes often indicate an underlying security problem. Monitoring the deployed application can go a long way toward quickly identifying and subsequently fixing vulnerabilities. In carefully designed software products, exceptions should be a fairly rare occurrence; it therefore usually does not introduce significant overhead to monitor for them.",
+       "visibleIf": "{Post-launch monitoring} = \"Weak\" or {Post-launch monitoring} = \"Nonexistent\""
+      },
+      {
+       "value": "You need to ensure that your config files contain no secrets. Additionally please review Security KB on how to avoid leaking secrets to build logs.",
+       "visibleIf": "{Deployment} notcontains \"Config files do NOT contain any secrets \""
+      },
+      {
+       "value": "We recommmend that your CI config files are templatized.",
+       "visibleIf": "{Deployment} notcontains \"Config files are templatized \""
+      },
+      {
+       "value": "We recommend that you have a scripted solution for CI/CD.",
+       "visibleIf": "{Deployment} notcontains \"Scripted solution for CI and CD\""
+      },
+      {
+       "value": "Have a status endpoint to indicate service health (it should monitor real things like database connections and downstream dependencies)",
+       "visibleIf": "{Reliability} notcontains \"Status endpoint to indicate service health\""
+      },
+      {
+       "value": "Have a New Relic synthetic monitor configured to monitor/status.",
+       "visibleIf": "{Reliability} notcontains \"Relic synthetic monitor\""
+      },
+      {
+       "value": "Configure PagerDuty for your new service. Reach out to DevOps if you have questions.",
+       "visibleIf": "{Reliability} contains \"PagerDuty for our new service\""
+      },
+      {
+       "value": "New Relic agent installed and reporting data to New Relic SRE indicators (api error rate and response time).",
+       "visibleIf": "{Reliability} notcontains \"New Relic agent installed\""
+      },
+      {
+       "value": "Your service must be able to scale in response to load, either manually or automatically. Ask DevOps if you need more clarification on this.",
+       "visibleIf": "{Reliability} notcontains \"Service is able to scale in response to load\""
+      },
+      {
+       "value": "You should create an on-call playbook for your service, and link it into the main on-call documentation.",
+       "visibleIf": "{Reliability} notcontains \"An on-call playbook for the service, linked it into the main on-call documentation\""
+      }
+     ],
+     "hasSelectAll": true
     }
    ],
    "title": "Jira Ticket"
