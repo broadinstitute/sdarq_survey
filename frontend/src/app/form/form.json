@@ -669,7 +669,7 @@
      "name": "Ticket_Description",
      "title": "Add alerts in your ticket description:",
      "enableIf": "{JiraProject} notempty",
-     "isRequired": true,
+     "isRequired": true, 
      "choices": [
       {
        "value": "Please reach out to AppSec team for initial security discussion. This is basically a Threat Modeling and Security Architecture Review session. The main purpose of the meeting is for us to take  an iterative, recursive look at the architecture and design of a new service/system.",
