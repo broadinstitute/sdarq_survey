@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SendFormDataService } from './send-form-data.service';
 import { HttpModule } from '@angular/http';
 import { NonDSPformComponent } from './non-dspform/non-dspform.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NonDSPformComponent } from './non-dspform/non-dspform.component';
     SurveyCreatorComponent,
     FormComponent,
     MainpageComponent,
-    NonDSPformComponent
+    NonDSPformComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
