@@ -126,6 +126,21 @@
         "name": "Google project",
         "visibleIf": "{Architecture} = 'GKE' or {Architecture} = 'GCF' or {Architecture} = 'GAE'",
         "title": "Google project name"
+       },
+       {
+        "type": "radiogroup",
+        "name": "GCP best practices",
+        "title": "Have the GCP best practices been followed in the design and use of cloud services?",
+        "choices": [
+         {
+          "value": "Yes",
+          "text": "Yes"
+         },
+         {
+          "value": "No",
+          "text": "No"
+         }
+        ]
        }
       ],
       "title": "Architecture"
@@ -474,6 +489,12 @@
        },
        {
         "type": "html",
+        "name": "question1",
+        "visibleIf": "{GCP best practices} = 'No'",
+        "html": "<div class=\"highs\">Please check this <a href=\"https://docs.google.com/document/d/1adV0LC2f_GIpl3A1AeoQuNiwcP59NToIt6VYT3xRCkU/edit#heading=h.80ef333b1wz\">doc</a> to  manage your GCP project.</div>"
+       },
+       {
+        "type": "html",
         "name": "Alert-encryptionBackupOptions",
         "visibleIf": "{Applicable} contains \"Using persistent storage\"",
         "html": "<div class=\"highs\">Reach out to DevOps team about persistence about Encryption and Backup options for your persistence storage.</div>"
@@ -576,7 +597,7 @@
        },
        {
         "type": "html",
-        "name": "Alert-oncallPlaybook",
+        "name": "Alert-oncallPlaybook ",
         "visibleIf": "{Reliability} notcontains \"An on-call playbook for the service, linked it into the main on-call documentation\"",
         "html": "<div class=\"medium\">You should create an on-call playbook for your service, and link it into the main on-call documentation</div>"
        }
@@ -793,6 +814,10 @@
          {
           "value": "You should create an on-call playbook for your service, and link it into the main on-call documentation.",
           "visibleIf": "{Reliability} notcontains \"An on-call playbook for the service, linked it into the main on-call documentation\""
+         },
+         {
+          "value": "Please check this doc (https://docs.google.com/document/d/1adV0LC2f_GIpl3A1AeoQuNiwcP59NToIt6VYT3xRCkU/edit#heading=h.80ef333b1wz ) to  manage your GCP project.",
+          "visibleIf": "{GCP best practices} = 'No'"
          }
         ],
         "hasSelectAll": true
