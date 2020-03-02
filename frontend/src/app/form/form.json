@@ -826,7 +826,8 @@
       "title": "Jira Ticket"
      }
     ],
-    "showQuestionNumbers": "false",
+    "showNavigationButtons": "top",
+    "showQuestionNumbers": "off",
     "questionErrorLocation": "bottom",
     "showProgressBar": "top"
    }
